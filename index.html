@@ -4,106 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le CHYLL 78 | Restaurant & Lounge La Verrière</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tenor+Sans&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent-color: #00f2ff; /* Bleu Néon */
-            --bg-dark: #0a0a0a;
-            --card-bg: #161616;
-            --text-light: #ffffff;
+            --gold: #c5a059;
+            --dark: #0a0a0a;
+            --white: #ffffff;
+            --grey: #1a1a1a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-dark); color: var(--text-light); scroll-behavior: smooth; }
+        body { font-family: 'Tenor Sans', sans-serif; background-color: var(--dark); color: var(--white); line-height: 1.6; }
 
         /* Navigation */
-        nav { background: rgba(0, 0, 0, 0.9); padding: 20px; position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid #333; text-align: center; }
-        nav a { color: var(--text-light); text-decoration: none; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        nav a:hover { color: var(--accent-color); }
+        nav { padding: 30px 5%; display: flex; justify-content: space-between; align-items: center; position: absolute; width: 100%; z-index: 100; background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent); }
+        .logo { font-family: 'Marcellus', serif; font-size: 1.8rem; color: var(--gold); letter-spacing: 3px; }
+        .nav-links a { text-decoration: none; color: white; margin-left: 30px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Hero Section */
+        /* Header / Hero avec la 1ère image (Salle) */
         .hero { 
             height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=2000&auto=format&fit=crop'); 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://cdn.eat-list.fr/establishment/photo/gallery_photo/78320-la-verriere/le-chyll-78_252098_5e2.jpg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
         }
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 10vw, 5rem); color: var(--accent-color); text-shadow: 0 0 20px var(--accent-color); margin-bottom: 10px; }
-        .hero p { font-size: 1.5rem; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
+        .hero h1 { font-family: 'Marcellus', serif; font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 20px; color: var(--gold); }
+        .hero p { font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; }
 
-        /* Section Menu / Concept */
-        .content { padding: 100px 20px; max-width: 1000px; margin: auto; }
-        h2 { font-family: 'Orbitron', sans-serif; text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--text-light); }
+        /* Section Story (Images & Texte) */
+        .story { display: flex; flex-wrap: wrap; background: var(--grey); }
+        .story-content { flex: 1; min-width: 350px; padding: 80px 8%; display: flex; flex-direction: column; justify-content: center; }
+        .story-image { flex: 1; min-width: 350px; min-height: 500px; background-size: cover; background-position: center; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
-        .card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
-        .card h3 { color: var(--accent-color); margin-bottom: 15px; text-transform: uppercase; }
+        .story h2 { font-family: 'Marcellus', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 30px; }
+        .story p { color: #ccc; margin-bottom: 20px; font-size: 1.1rem; }
 
-        /* Infos & Contact */
-        .contact-info { background: #000; padding: 60px 20px; border-top: 2px solid var(--accent-color); }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1100px; margin: auto; text-align: center; }
-        .info-item h4 { color: var(--accent-color); margin-bottom: 20px; text-transform: uppercase; font-size: 1.1rem; }
-        
-        .phone-btn { display: inline-block; background: var(--accent-color); color: #000; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 10px; transition: 0.3s; }
-        .phone-btn:hover { box-shadow: 0 0 20px var(--accent-color); }
+        /* Grille de la Carte */
+        .menu-grid { padding: 100px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; }
+        .menu-cat h3 { font-family: 'Marcellus', serif; font-size: 2rem; color: var(--gold); margin-bottom: 40px; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
+        .dish { display: flex; justify-content: space-between; margin-bottom: 25px; }
+        .dish b { font-size: 1.2rem; display: block; }
+        .dish i { font-size: 0.9rem; color: #888; font-style: normal; }
+        .price { color: var(--gold); font-weight: bold; }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.8rem; border-top: 1px solid #111; }
+        /* Contact & Maps */
+        .contact { background: var(--white); color: var(--dark); padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .contact-col h4 { font-family: 'Marcellus', serif; font-size: 1.8rem; margin-bottom: 25px; color: var(--dark); }
+        .btn-call { display: inline-block; padding: 15px 30px; background: var(--dark); color: white; text-decoration: none; margin-top: 20px; transition: 0.3s; }
+        .btn-call:hover { background: var(--gold); }
+
+        .hours-list { list-style: none; }
+        .hours-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+
+        footer { text-align: center; padding: 40px; background: #000; font-size: 0.8rem; color: #555; }
+
+        @media (max-width: 768px) {
+            .story { flex-direction: column; }
+            .hero h1 { font-size: 3.5rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#concept">Concept</a>
-        <a href="#infos">Infos</a>
-        <a href="#contact">Contact</a>
+        <div class="logo">CHYLL 78</div>
+        <div class="nav-links">
+            <a href="#cuisine">La Table</a>
+            <a href="#lounge">Le Lounge</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
 
     <header class="hero">
-        <h1>LE CHYLL 78</h1>
-        <p>Lounge • Food • Vibes</p>
+        <h1>Le CHYLL 78</h1>
+        <p>L'Expérience Gastronomique</p>
     </header>
 
-    <section id="concept" class="content">
-        <h2>L'Expérience</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Gastronomie</h3>
-                <p>Une carte variée alliant saveurs modernes et classiques gourmands.</p>
-            </div>
-            <div class="card">
-                <h3>Ambiance</h3>
-                <p>Un cadre design et lumineux, parfait pour vos soirées entre amis.</p>
-            </div>
-            <div class="card">
-                <h3>Night Life</h3>
-                <p>Ouvert jusqu'à 02h00 pour prolonger vos moments de détente.</p>
-            </div>
+    <section id="cuisine" class="story">
+        <div class="story-content">
+            <h2>Cuisine Créative</h2>
+            <p>Une carte pensée pour les amateurs de saveurs authentiques. Des produits frais, travaillés chaque jour pour vous offrir le meilleur de la brasserie moderne.</p>
+            <p><i>Note Google Maps : 4.5/5</i></p>
         </div>
+        <div class="story-image" style="background-image: url('https://cdn.eat-list.fr/establishment/photo/gallery_photo/78320-la-verriere/le-chyll-78_252098_b83.jpg');"></div>
     </section>
 
-    <section id="infos" class="contact-info">
-        <div class="info-grid">
-            <div class="info-item">
-                <h4>📍 Adresse</h4>
-                <p>20 N10<br>78320 La Verrière</p>
-                <a href="https://maps.google.com/?cid=2234612471806333685&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" style="color: var(--accent-color); font-size: 0.8rem;">Itinéraire Google Maps</a>
-            </div>
-            <div class="info-item" id="contact">
-                <h4>📞 Réservations</h4>
-                <p>Appuyez pour appeler :</p>
-                <a href="tel:+33130239474" class="phone-btn">01 30 23 94 74</a>
-            </div>
-            <div class="info-item">
-                <h4>🕒 Horaires</h4>
-                <p>Lun - Sam : 11:30 - 02:00</p>
-                <p>Dimanche : 18:00 - 02:00</p>
-            </div>
+    <section id="lounge" class="story" style="flex-direction: row-reverse;">
+        <div class="story-content">
+            <h2>Lounge & Chill</h2>
+            <p>Profitez de notre espace détente. Cocktails signatures, ambiance feutrée et accueil chaleureux jusqu'à 02h00 du matin.</p>
+            <p>Le lieu idéal pour vos soirées entre amis ou vos événements privés à La Verrière.</p>
+        </div>
+        <div class="story-image" style="background-image: url('https://cdn.eat-list.fr/establishment/photo/gallery_photo/78320-la-verriere/le-chyll-78_252098_dff.jpg');"></div>
+    </section>
+
+    <div class="menu-grid">
+        <div class="menu-cat">
+            <h3>Notre Table</h3>
+            <div class="dish"><div><b>Plats Signatures</b><i>Sélection de viandes de qualité</i></div><span class="price">22€</span></div>
+            <div class="dish"><div><b>Burgers Gourmet</b><i>Pain artisanal, frites maison</i></div><span class="price">17€</span></div>
+        </div>
+        <div class="menu-cat">
+            <h3>Le Bar</h3>
+            <div class="dish"><div><b>Cocktails Création</b><i>Mixologie & saveurs exotiques</i></div><span class="price">12€</span></div>
+            <div class="dish"><div><b>Excellent Café</b><i>Torréfaction premium</i></div><span class="price">2.5€</span></div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact">
+        <div class="contact-col">
+            <h4>📍 Accès</h4>
+            <p>20 N10, 78320 La Verrière</p>
+            <p><strong>Parking Gratuit</strong> & Facile</p>
+            <p>♿ Établissement Accessible</p>
+            <a href="https://maps.google.com/?cid=2234612471806333685&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNl" target="_blank" class="btn-call">Itinéraire Maps</a>
+        </div>
+        <div class="contact-col">
+            <h4>📞 Réservation</h4>
+            <p>Nous vous accueillons avec plaisir :</p>
+            <p style="font-size: 1.8rem; font-weight: bold; margin-top: 10px;">01 30 23 94 74</p>
+            <a href="tel:+33130239474" class="btn-call">Appeler maintenant</a>
+        </div>
+        <div class="contact-col">
+            <h4>🕒 Horaires</h4>
+            <ul class="hours-list">
+                <li><span>Lun - Sam</span> <span>11:30 - 02:00</span></li>
+                <li><span>Dimanche</span> <span>18:00 - 02:00</span></li>
+            </ul>
         </div>
     </section>
 
     <footer>
-        © 2026 LE CHYLL 78 - La Verrière. Tous droits réservés.
+        © 2026 LE CHYLL 78 - Restaurant & Lounge La Verrière
     </footer>
 
 </body>
